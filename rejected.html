@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Application Rejected — FoodStore</title><link rel="stylesheet" href="style.css"></head>
+<body><div id="spinner"><div class="spinner-ring"></div></div><div class="status-page"><div class="icon">❌</div><h2>Application Not Approved</h2><p>Unfortunately your chef application was not approved at this time. Please contact support if you believe this was a mistake.</p><button class="btn btn-outline" id="logout-btn">Sign Out</button></div>
+<script type="module">import { auth } from "./firebase.js"; import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"; import { handleLogout } from "./auth.js"; import { hideSpinner } from "./app.js"; onAuthStateChanged(auth, user => { if (!user) window.location.href = "login.html"; else hideSpinner(); }); document.getElementById("logout-btn").addEventListener("click", handleLogout);</script></body></html>

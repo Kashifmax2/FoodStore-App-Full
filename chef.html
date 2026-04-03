@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef Panel — FoodStore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="spinner"><div class="spinner-ring"></div></div>
+  <div class="sidebar-overlay" id="overlay"></div>
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo"><div class="brand">🍔 FoodStore</div><div class="user-pill">Chef Panel <strong id="chef-name">…</strong></div></div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active" data-section="orders"><span class="nav-icon">📋</span> Incoming Orders</a>
+        <a href="#" class="nav-link" data-section="dishes"><span class="nav-icon">🍽️</span> My Dishes</a>
+        <a href="#" class="nav-link" data-section="add"><span class="nav-icon">➕</span> Add Dish</a>
+      </nav>
+      <div class="sidebar-footer"><button class="btn btn-outline btn-block" id="logout-btn">↩ Logout</button></div>
+    </aside>
+    <div class="main"><div class="topbar"><button class="hamburger" id="hamburger">☰</button><h1>Chef Dashboard</h1></div><div class="content" id="main-content"><div class="loading-dots"><span></span><span></span><span></span></div></div></div>
+  </div>
+  <script type="module" src="chef.js"></script>
+  <script>
+    const ham = document.getElementById("hamburger");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    ham.addEventListener("click", () => { sidebar.classList.toggle("open"); overlay.classList.toggle("active"); });
+    overlay.addEventListener("click", () => { sidebar.classList.remove("open"); overlay.classList.remove("active"); });
+  </script>
+</body>
+</html>

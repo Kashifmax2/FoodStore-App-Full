@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — FoodStore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="spinner"><div class="spinner-ring"></div></div>
+  <div class="sidebar-overlay" id="overlay"></div>
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="brand">🍔 FoodStore</div>
+        <div class="user-pill">Logged in as <strong id="user-name">…</strong></div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active" data-section="menu"><span class="nav-icon">🍽️</span> Menu</a>
+        <a href="#" class="nav-link" data-section="cart"><span class="nav-icon">🛒</span> Cart <span class="cart-badge" id="cart-count"></span></a>
+        <a href="#" class="nav-link" data-section="orders"><span class="nav-icon">📦</span> My Orders</a>
+      </nav>
+      <div class="sidebar-footer"><button class="btn btn-outline btn-block" id="logout-btn">↩ Logout</button></div>
+    </aside>
+    <div class="main">
+      <div class="topbar"><button class="hamburger" id="hamburger">☰</button><h1>Customer Dashboard</h1></div>
+      <div class="content" id="main-content"><div class="loading-dots"><span></span><span></span><span></span></div></div>
+    </div>
+  </div>
+  <script type="module" src="user.js"></script>
+  <script>
+    const ham = document.getElementById("hamburger");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    ham.addEventListener("click", () => { sidebar.classList.toggle("open"); overlay.classList.toggle("active"); });
+    overlay.addEventListener("click", () => { sidebar.classList.remove("open"); overlay.classList.remove("active"); });
+  </script>
+</body>
+</html>
